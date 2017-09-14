@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>IOSPjsipWrapper.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>8</integer>
+		</dict>
+		<key>SwigApp.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>ipjsua.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>3AF0580316F050770046B835</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FAC7D6331F4C95C4003A0D87</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FAEE4BF41F57112D0014AB25</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FAEE4C011F5714180014AB25</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
