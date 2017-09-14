@@ -12,20 +12,6 @@
 
 @interface IOSPjsipWrapper : NSObject
 
-typedef struct  {
-    const char *displayName;
-    const char *address;
-    const char *domain;
-    const char *proxy;
-    const char *authScheme;
-    const char *authRealm;
-    const char *username;
-    const char *password;
-    
-    
-} sipAccount;
-
-
 +(instancetype)iOSPjsipWrapperInstance;
 -(instancetype)init NS_UNAVAILABLE;
 -(void)configureEndpoint;
