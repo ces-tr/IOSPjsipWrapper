@@ -18,6 +18,10 @@
 #import "SWAppDelegate.h"
 #import "IOSPjsipWrapper.h"
 
+@import MobileCenter;
+@import MobileCenterAnalytics;
+@import MobileCenterCrashes;
+
 IOSPjsipWrapper *iOSPjsipWrapper;
 
 
@@ -36,6 +40,11 @@ IOSPjsipWrapper *iOSPjsipWrapper;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    [MSMobileCenter start:@"89d5ed2d-b3a3-4099-9786-3852f1c84de9" withServices:@[
+                                                                                 [MSAnalytics class],
+                                                                                 [MSCrashes class]
+                                                                                 ]];
 
     iOSPjsipWrapper = [IOSPjsipWrapper iOSPjsipWrapperInstance];
     

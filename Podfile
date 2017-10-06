@@ -15,6 +15,7 @@ target 'SwigApp' do
   pod 'AFNetworking/Reachability', '~> 2.3'
   pod	 'libextobjc', '~> 0.4'
   pod 'CocoaLumberjack', '2.0.0-rc'
+  pod 'MobileCenter'
 end 
 
 target 'IOSPjsipWrapper’  do
