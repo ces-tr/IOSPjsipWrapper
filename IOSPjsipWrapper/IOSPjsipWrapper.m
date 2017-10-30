@@ -6,6 +6,7 @@
 //
 
 #import "IOSPjsipWrapper.h"
+#import "VideoStateChangedMulticastDelegate.h"
 #import "Swig.h"
 #import "Logger.h"
 
@@ -170,6 +171,12 @@ static IOSPjsipWrapper *_sharedInstance = nil;
 }
 
 -(void)makeVideoCall {
+    
+    VideoStateChangedMulticastDelegate* multicastDelegateTest = [VideoStateChangedMulticastDelegate sharedInstance] ;
+    [multicastDelegateTest videoStateChanged:true] ;
+    
+    
+    return;
     
     SWAccount *account = [[SWEndpoint sharedEndpoint] firstAccount];
     

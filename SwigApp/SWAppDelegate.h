@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-#define USE_GUI 1
 @class IOSPjsipWrapper;
 
 @interface SWAppDelegate : UIResponder <UIApplicationDelegate>

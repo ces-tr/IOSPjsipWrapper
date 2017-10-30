@@ -23,8 +23,6 @@
 #import <pjsua.h>
 
 
-
-
 #define KEEP_ALIVE_INTERVAL 600
 
 typedef void (^SWAccountStateChangeBlock)(SWAccount *account);
@@ -789,9 +787,6 @@ static void SWOnCallMediaState(pjsua_call_id call_id) {
                     case PJMEDIA_TYPE_AUDIO:
                         printf("SWOnCallMediaState Logger: case audio ");
                         
-                        if ([SWEndpoint sharedEndpoint].callMediaStateChangeBlock) {
-                            [SWEndpoint sharedEndpoint].callMediaStateChangeBlock(account, call);
-                        }
                         [call audioStateChanged: &callInfo  mi:mi haserror: &has_error];
 
                         break;
@@ -804,6 +799,10 @@ static void SWOnCallMediaState(pjsua_call_id call_id) {
                         // Make gcc happy about enum not handled by switch/case /
                         printf("SWOnCallMediaState Logger: default case ");
                         break;
+                }
+                
+                if ([SWEndpoint sharedEndpoint].callMediaStateChangeBlock) {
+                    [SWEndpoint sharedEndpoint].callMediaStateChangeBlock(account, call);
                 }
                 
             }

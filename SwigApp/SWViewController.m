@@ -10,7 +10,11 @@
 #import "Swig.h"
 #import "IOSPjsipWrapper.h"
 
-@interface SWViewController ()
+
+@interface SWViewController  (){
+
+    VideoStateChangedMulticastDelegate * videoStateChangedMulticastDelegate ;
+}
 
 
 @end
@@ -22,10 +26,12 @@
 id cself;
 
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     cself =self;
+    [self intitializeView];
     
 }
 
@@ -114,6 +120,27 @@ id cself;
 //    
 //    return PJ_SUCCESS;
 //}
+- (id) initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if(!self) {
+        return nil;
+    }
+    
+    videoStateChangedMulticastDelegate = [VideoStateChangedMulticastDelegate sharedInstance] ;
+    [videoStateChangedMulticastDelegate subscribe:self];
+    [videoStateChangedMulticastDelegate subscribe:self];
+    
+    
+    return self;
+}
+
+-(void) videoEnabled :(BOOL)flag {
+
+    NSLog(@"it works");
+    [videoStateChangedMulticastDelegate unsubscribe:self];
+}
+
 -(instancetype)init {
     
     self = [super init];
@@ -122,19 +149,10 @@ id cself;
         return nil;
     }
     
-    [self intitializeView];
-    
     return self;
 }
 
 -(void) intitializeView{
-//    SWAccountConfiguration *configuration = [SWAccountConfiguration new];
-//    configuration.username = @"cestr_cesar_turrubiates";
-//    configuration.password = @"4Kg7KFmpMY54njJR";
-//    configuration.domain = @"cestr.onsip.com";
-//    configuration.address = [SWAccountConfiguration addressFromUsername:@"iospjsip" domain:configuration.domain];
-//    configuration.proxy = @"sip.onsip.com";
-//    configuration.registerOnAdd = YES;
     
 }
 

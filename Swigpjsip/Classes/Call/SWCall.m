@@ -27,6 +27,7 @@
 @property (nonatomic, strong) SWRingback *ringback;
 @property (nonatomic) BOOL speaker;
 @property (nonatomic) BOOL mute;
+@property (nonatomic) UIView *incomingVideoView ;//= (__bridge UIView *)wi.hwnd.info.ios.window;
 
 @end
 
@@ -344,10 +345,6 @@ static void on_call_generic_media_state(pjsua_call_info *ci, unsigned mi, pj_boo
 /* Process audio media state. "mi" is the media index. */
 -(void) audioStateChanged: (pjsua_call_info *)ci mi:(unsigned)mi haserror:(pj_bool_t *) haserror {
 
-//}
-//static void SWOnCallAudioState(pjsua_call_info *ci, unsigned mi,
-//                               pj_bool_t *has_error)
-//{
     /* Connect ports appropriately when media status is ACTIVE or REMOTE HOLD,
      * otherwise we should NOT connect the ports.
      */
@@ -374,9 +371,7 @@ static void on_call_generic_media_state(pjsua_call_info *ci, unsigned mi, pj_boo
             //    pjsua_conf_connect(0, app_config.rec_port);
             //}
         }
-        
-        
-        
+      
     }
 }
 
@@ -388,7 +383,7 @@ static void on_call_generic_media_state(pjsua_call_info *ci, unsigned mi, pj_boo
         if (ci->media_status != PJSUA_CALL_MEDIA_ACTIVE)
             return;
 
-        arrange_window2(ci->media[mi].stream.vid.win_in);
+        [self arrange_window2: ci->media[mi].stream.vid.win_in] ;
         
         //    pjsua_call_vid_strm_op_param op_param;
         //    op_param.med_idx=-1;
@@ -401,7 +396,7 @@ static void on_call_generic_media_state(pjsua_call_info *ci, unsigned mi, pj_boo
     }
 }
 
-void arrange_window2(pjsua_vid_win_id wid)
+-(void) arrange_window2:(pjsua_vid_win_id) wid
 {
 #if PJSUA_HAS_VIDEO
     pjmedia_coord pos;
@@ -426,18 +421,59 @@ void arrange_window2(pjsua_vid_win_id wid)
             pos.y += wi.size.h;
     }
     
-    if (wid != PJSUA_INVALID_ID)
+    //Video Channel is not enabled
+    if (wid != PJSUA_INVALID_ID) {
         pjsua_vid_win_set_pos(wid, &pos);
-    
-#ifdef USE_GUI
-    displayVidCallWindow(wid);
-#endif
-
+        [self initializeIncomingVideoView: wid];
+        
+        
+    }
     
     
 #else
     PJ_UNUSED_ARG(wid);
 #endif
+}
+
+-(void )initializeIncomingVideoView:(pjsua_vid_win_id) wid {
+
+    int i, last;
+    
+    i = (wid == PJSUA_INVALID_ID) ? 0 : wid;
+    last = (wid == PJSUA_INVALID_ID) ? PJSUA_MAX_VID_WINS : wid+1;
+    
+    for (;i < last; ++i) {
+        pjsua_vid_win_info wi;
+        
+        if (pjsua_vid_win_get_info(i, &wi) == PJ_SUCCESS) {
+            //            UIView *parent = [cself view ] ;//app.viewController.view;
+            _incomingVideoView= (__bridge UIView *)wi.hwnd.info.ios.window;
+            
+            //            if (view) {
+            //                dispatch_async(dispatch_get_main_queue(), ^{
+            //                    /* Add the video window as subview */
+            //                    if (![view isDescendantOfView:parent])
+            //                        [parent addSubview:view];
+            //
+            //                    if (!wi.is_native) {
+            //                        /* Resize it to fit width */
+            //                        view.bounds = CGRectMake(0, 0, parent.bounds.size.width,
+            //                                                 (parent.bounds.size.height *
+            //                                                  1.0*parent.bounds.size.width/
+            //                                                  view.bounds.size.width));
+            //                        /* Center it horizontally */
+            //                        view.center = CGPointMake(parent.bounds.size.width/2.0,
+            //                                                  view.bounds.size.height/2.0);
+            //                    } else {
+            //                        /* Preview window, move it to the bottom */
+            //                        view.center = CGPointMake(parent.bounds.size.width/2.0,
+            //                                                  parent.bounds.size.height-
+            //                                                  view.bounds.size.height/2.0);
+            //                    }
+            //                });
+            //            }
+        }
+    }
 }
 
 

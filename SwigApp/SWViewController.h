@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VideoStateChangedMulticastDelegate.h"
 
-@interface SWViewController : UIViewController
+@interface SWViewController : UIViewController <VideoStateProtocol>
+
 @property (weak, nonatomic) IBOutlet UITextField *txtaddress;
 
 @property (weak, nonatomic) IBOutlet UITextField *txtdomain;

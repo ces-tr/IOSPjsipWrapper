@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -31,8 +31,8 @@
                                     <action selector="makeCall:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Z4f-l5-Yv1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vVz-Jc-0Ai">
-                                <rect key="frame" x="251" y="445" width="35" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vVz-Jc-0Ai">
+                                <rect key="frame" x="225" y="445" width="35" height="30"/>
                                 <state key="normal" title="mute">
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -123,8 +123,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lko-2m-603">
-                                <rect key="frame" x="145" y="444" width="55" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lko-2m-603">
+                                <rect key="frame" x="119" y="444" width="55" height="30"/>
                                 <state key="normal" title="speaker">
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -132,9 +132,8 @@
                                     <action selector="speaker:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="EJ9-gu-ZpJ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KS0-lh-EA3">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KS0-lh-EA3">
                                 <rect key="frame" x="209" y="372" width="119" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="MakeVideoCall"/>
                                 <connections>
                                     <action selector="makeVideoCall:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="PJz-9s-DrR"/>
@@ -144,12 +143,11 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="XcU-Gt-Vcf" firstAttribute="top" secondItem="Wt9-JU-rAf" secondAttribute="bottom" constant="8" id="0Ga-Bj-b6J"/>
-                            <constraint firstItem="lko-2m-603" firstAttribute="top" secondItem="vVz-Jc-0Ai" secondAttribute="bottom" constant="8" id="Hnw-XT-FjC"/>
                             <constraint firstItem="Wt9-JU-rAf" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" constant="341" id="RON-1G-bf5"/>
-                            <constraint firstItem="vVz-Jc-0Ai" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="113" id="cql-Q2-wKX"/>
-                            <constraint firstItem="vVz-Jc-0Ai" firstAttribute="top" secondItem="XcU-Gt-Vcf" secondAttribute="bottom" constant="8" id="gsf-Gv-7mR"/>
+                            <constraint firstItem="vVz-Jc-0Ai" firstAttribute="leading" secondItem="lko-2m-603" secondAttribute="trailing" constant="51" id="ZrZ-tB-qKS"/>
                             <constraint firstItem="XcU-Gt-Vcf" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="107" id="hTe-B9-yMV"/>
                             <constraint firstItem="lko-2m-603" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="103" id="sZ7-nV-EVg"/>
+                            <constraint firstItem="vVz-Jc-0Ai" firstAttribute="top" secondItem="KS0-lh-EA3" secondAttribute="bottom" constant="43" id="uno-6b-T0m"/>
                             <constraint firstItem="Wt9-JU-rAf" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="95" id="vHE-Yr-yHH"/>
                         </constraints>
                     </view>
@@ -166,9 +164,4 @@
             <point key="canvasLocation" x="120.5" y="136.5"/>
         </scene>
     </scenes>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
-    </simulatedMetricsContainer>
 </document>
